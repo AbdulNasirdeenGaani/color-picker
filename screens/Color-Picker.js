@@ -2,20 +2,26 @@ import { Button, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 
 const ColorPicker = () => {
-  const [color, setColor] = useState(randomColor());
+  const [color, setColor] = useState("");
   return (
     <View style={styles.container}>
       <Text style={{ fontSize: 50, fontFamily: "" }}>Color Picker</Text>
       <Button
         title="Pick a Color"
-        onPress={() => {
-          setColor(randomColor());
-          alert(color);
+        onPress={(prev, cur) => {
+          cur = randomColor();
+          setColor(cur);
+          alert(cur);
         }}
       />
 
       <View
-        style={{ backgroundColor: color, height: 100, width: 100, marginTop: 20 }}
+        style={{
+          backgroundColor: color,
+          height: 100,
+          width: 100,
+          marginTop: 20,
+        }}
       ></View>
     </View>
   );
